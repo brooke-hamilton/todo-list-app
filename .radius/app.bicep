@@ -80,6 +80,6 @@ resource todoContainer 'Radius.Compute/containers@2025-08-01-preview' = {
         source: demoImage.id
       }
     }
-    codeReference: 'src/js/app.js#L1'
+    // codeReference: 'src/js/app.js#L1'
   }
 }
