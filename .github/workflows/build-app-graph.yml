@@ -2,6 +2,7 @@
 name: Build Application Graph
 
 on:
+  workflow_dispatch: 
   push:
     branches: [main]
     paths: [.radius/app.bicep]
