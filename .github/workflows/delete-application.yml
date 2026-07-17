@@ -12,7 +12,7 @@ on:
       environment:
         description: 'GitHub Environment name'
         required: true
-        default: 'pre-prod'
+        default: 'banana'
       application:
         description: 'Name of the application to delete'
         required: true
@@ -30,7 +30,7 @@ jobs:
   detect:
     name: Detect provider
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment || 'pre-prod' }}
+    environment: ${{ inputs.environment || 'banana' }}
     outputs:
       provider: ${{ steps.detect.outputs.provider }}
     steps:
@@ -53,7 +53,7 @@ jobs:
     if: ${{ needs.detect.outputs.provider == 'azure' }}
     uses: ./.github/workflows/delete-azure.yml
     with:
-      environment: ${{ inputs.environment || 'pre-prod' }}
+      environment: ${{ inputs.environment || 'banana' }}
       resource_type: application
       name: ${{ inputs.application }}
     secrets: inherit
@@ -64,7 +64,7 @@ jobs:
     if: ${{ needs.detect.outputs.provider == 'aws' }}
     uses: ./.github/workflows/delete-aws.yml
     with:
-      environment: ${{ inputs.environment || 'pre-prod' }}
+      environment: ${{ inputs.environment || 'banana' }}
       resource_type: application
       name: ${{ inputs.application }}
     secrets: inherit
